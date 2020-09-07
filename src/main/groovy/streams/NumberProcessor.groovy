@@ -1,7 +1,6 @@
 package streams
 
 import java.util.function.Predicate
-import java.util.stream.Collectors
 
 @SuppressWarnings('GroovyAssignabilityCheck')
 class NumberProcessor {
