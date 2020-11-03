@@ -8,6 +8,7 @@ import java.time.LocalDate
 class User {
     String name
 
+    // Elvis assignment
     String getName() { name ?= 'none' }
 }
 
@@ -15,7 +16,7 @@ class User {
 assert 42 !instanceof LocalDate
 assert 4 !in [1, 3, 5, 7]
 
-// Elvis assignment
+// Elvis assignment with null name
 User u = new User()
 assert u.name == 'none'
 
