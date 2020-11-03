@@ -10,10 +10,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.codehaus.groovy:groovy:3.0.5'
-    implementation 'org.codehaus.groovy:groovy-datetime:3.0.5'
-    implementation 'org.codehaus.groovy:groovy-json:3.0.5'
-    testImplementation platform('org.spockframework:spock-bom:2.0-M3-groovy-3.0')
+    implementation 'org.codehaus.groovy:groovy:3.0.6'
+    implementation 'org.codehaus.groovy:groovy-datetime:3.0.6'
+    implementation 'org.codehaus.groovy:groovy-json:3.0.6'
+    testImplementation platform('org.spockframework:spock-bom:2.0-M4-groovy-3.0')
     testImplementation 'org.spockframework:spock-core'
 }
 
