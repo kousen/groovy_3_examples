@@ -2,8 +2,8 @@ package astro
 
 import groovy.sql.Sql
 
-@GrabConfig(systemClassLoader = true)
-@Grab('com.h2database:h2:1.4.200')
+//@GrabConfig(systemClassLoader = true)
+//@Grab('com.h2database:h2:1.4.200')
 
 Sql sql = Sql.newInstance(url: 'jdbc:h2:~/astro', driver: 'org.h2.Driver')
 sql.execute '''

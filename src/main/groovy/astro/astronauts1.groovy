@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import groovy.json.JsonSlurper
 import groovy.transform.Canonical
 
-@Grab('com.google.code.gson:gson:2.8.6')
+// @Grab('com.google.code.gson:gson:2.8.6')
 
 @Canonical
 class Assignment {
