@@ -1,7 +1,6 @@
 package astro
 
 import com.google.gson.Gson
-import groovy.json.JsonSlurper
 import groovy.sql.Sql
 
 //@GrabConfig(systemClassLoader = true)
@@ -18,16 +17,18 @@ sql.execute '''
 '''
 
 static AstroResponse getAstroResponse() {
-    String jsonTxt = 'http://api.open-notify.org/astros.json'.toURL().text
-    def json = new JsonSlurper().parseText(jsonTxt)
-    new Gson().fromJson(jsonTxt, AstroResponse)
+    new Gson().fromJson(
+            'http://api.open-notify.org/astros.json'.toURL().text,
+            AstroResponse)
 }
 
-astroResponse.people.each {
+AstroResponse response = astroResponse
+
+response.people.each {
     sql.execute "insert into ASTRONAUTS(name, craft) values ($it.name, $it.craft)"
 }
 
-assert sql.rows('select * from ASTRONAUTS').size() == astroResponse.number
+assert sql.rows('select * from ASTRONAUTS').size() == response.number
 
 sql.eachRow('select * from ASTRONAUTS') { row ->
     println "${row.name.padRight(20)} aboard ${row.craft}"

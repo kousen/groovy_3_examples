@@ -1,7 +1,6 @@
 package astro
 
 import com.google.gson.Gson
-import groovy.json.JsonSlurper
 import groovy.transform.Canonical
 
 // @Grab('com.google.code.gson:gson:2.8.6')
@@ -19,11 +18,12 @@ class AstroResponse {
     Assignment[] people
 }
 
-AstroResponse getAstroResponse() {
+static AstroResponse getAstroResponse() {
     String jsonTxt = 'http://api.open-notify.org/astros.json'.toURL().text
-    def json = new JsonSlurper().parseText(jsonTxt)
-    println "There are ${json.number} people in space"
     new Gson().fromJson(jsonTxt, AstroResponse)
 }
 
-getAstroResponse().people.each {println it }
+AstroResponse response = astroResponse
+
+println "There are ${response.number} people in space"
+response.people.each {println it }
