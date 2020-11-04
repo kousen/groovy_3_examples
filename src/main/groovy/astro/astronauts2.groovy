@@ -9,7 +9,7 @@ import groovy.sql.Sql
 Sql sql = Sql.newInstance(url: 'jdbc:h2:~/astro', driver: 'org.h2.Driver')
 sql.execute '''
     drop table if exists ASTRONAUTS;
-    create table if not exists ASTRONAUTS(
+    create table ASTRONAUTS(
         id int auto_increment primary key,
         name varchar(50),
         craft varchar(50)
