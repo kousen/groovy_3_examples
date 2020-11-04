@@ -19,10 +19,11 @@ class AstroResponse {
     Assignment[] people
 }
 
-String jsonTxt = 'http://api.open-notify.org/astros.json'.toURL().text
-def json = new JsonSlurper().parseText(jsonTxt)
-println "There are ${json.number} people in space"
-
-new Gson().fromJson(jsonTxt, Response).people.each {
-    println it
+AstroResponse getAstroResponse() {
+    String jsonTxt = 'http://api.open-notify.org/astros.json'.toURL().text
+    def json = new JsonSlurper().parseText(jsonTxt)
+    println "There are ${json.number} people in space"
+    new Gson().fromJson(jsonTxt, AstroResponse)
 }
+
+getAstroResponse().people.each {println it }
